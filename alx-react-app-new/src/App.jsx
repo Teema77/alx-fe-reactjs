@@ -10,7 +10,7 @@ function App() {
 
 export default App;*/
 
-import Header from './components/Header';
+/*import Header from './components/Header';
 import MainContent from './components/MainContent';
 import UserProfile from './components/UserProfile';
 import Footer from './components/Footer';
@@ -26,7 +26,7 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
 
 /*import UserProfile from './components/UserProfile';
 
@@ -45,3 +45,13 @@ function App() {
 export default App;*/
 
 
+import Counter from './components/Counter';
+function App() {
+  return (
+    <>
+      <Counter />
+    </>
+  );
+}
+
+export default App;
