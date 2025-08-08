@@ -22,7 +22,7 @@ const RecipeList = () => {
 
 export default RecipeList;*/
 
-import { Link } from 'react-router-dom';
+/*import { Link } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
 
 const RecipeList = () => {
@@ -46,5 +46,31 @@ const RecipeList = () => {
   );
 };
 
-export default RecipeList;
+export default RecipeList;*/
 
+
+
+// src/components/RecipeList.jsx
+import React from 'react';
+import { useRecipeStore } from './recipeStore';
+
+const RecipeList = () => {
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
+
+  return (
+    <div style={{ padding: '20px' }}>
+      {filteredRecipes.length === 0 ? (
+        <p>No matching recipes found.</p>
+      ) : (
+        filteredRecipes.map(recipe => (
+          <div key={recipe.id} style={{ marginBottom: '15px' }}>
+            <h3>{recipe.title}</h3>
+            <p>{recipe.description}</p>
+          </div>
+        ))
+      )}
+    </div>
+  );
+};
+
+export default RecipeList;

@@ -9,7 +9,7 @@ export const useRecipeStore = create((set) => ({
   setRecipes: (recipes) => set({ recipes }),
 }));*/
 
-import { create } from 'zustand';
+/*import { create } from 'zustand';
 
 export const useRecipeStore = create((set) => ({
   recipes: [],
@@ -30,4 +30,39 @@ export const useRecipeStore = create((set) => ({
         recipe.id === updatedRecipe.id ? updatedRecipe : recipe
       ),
     })),
+}));*/
+
+
+// recipeStore.js
+import create from 'zustand';
+
+export const useRecipeStore = create((set, get) => ({
+  recipes: [],
+  searchTerm: '',
+  filteredRecipes: [],
+
+  // Add new recipe
+  addRecipe: (newRecipe) =>
+    set(state => ({
+      recipes: [...state.recipes, newRecipe],
+      filteredRecipes: [...state.recipes, newRecipe].filter(recipe =>
+        recipe.title.toLowerCase().includes(get().searchTerm.toLowerCase())
+      )
+    })),
+
+  // Set search term and immediately filter
+  setSearchTerm: (term) =>
+    set(state => {
+      const filtered = state.recipes.filter(recipe =>
+        recipe.title.toLowerCase().includes(term.toLowerCase())
+      );
+      return {
+        searchTerm: term,
+        filteredRecipes: filtered
+      };
+    }),
+
+  // Optional utility to reset all filters
+  resetFilter: () => set(state => ({ filteredRecipes: state.recipes }))
 }));
+
