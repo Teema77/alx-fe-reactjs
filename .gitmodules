@@ -1,0 +1,3 @@
+[submodule "github-user-search"]
+	path = github-user-search
+	url = git@github.com:Teema77/github-user-search.git
