@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { getUser } from './services/githubService';
 
 function App() {
@@ -34,6 +34,31 @@ function App() {
           <p>Followers: {user.followers} | Following: {user.following}</p>
         </div>
       )}
+    </div>
+  );
+}
+
+export default App;*/
+
+
+import React from "react";
+import Search from "./components/Search";
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-blue-600 text-white p-4 text-center">
+        <h1 className="text-2xl font-bold">GitHub User Search</h1>
+        <p className="text-sm">Find users by username, location, and repositories</p>
+      </header>
+
+      <main className="max-w-4xl mx-auto mt-6">
+        <Search />
+      </main>
+
+      <footer className="mt-10 p-4 text-center text-gray-500 text-sm">
+        Powered by GitHub API
+      </footer>
     </div>
   );
 }
