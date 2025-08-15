@@ -1,4 +1,4 @@
-import axios from 'axios';
+/*import axios from 'axios';
 
 const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
@@ -17,4 +17,17 @@ export const getUser = async (username) => {
     console.error('Error fetching GitHub user:', err);
     throw err;
   }
+};*/
+
+
+import axios from 'axios';
+
+export const fetchUserData = async (username) => {
+  const response = await axios.get(`https://api.github.com/users/${username}`, {
+    headers: {
+      Authorization: `token ${import.meta.env.VITE_APP_GITHUB_API_KEY || ''}`
+    }
+  });
+  return response.data;
 };
+
