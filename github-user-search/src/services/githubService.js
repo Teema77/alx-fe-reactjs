@@ -32,7 +32,7 @@ export const fetchUserData = async (username) => {
 };*/
 
 
-import axios from "axios";
+/*import axios from "axios";
 
 export const fetchAdvancedUsers = async ({ username, location, minRepos }) => {
   let query = "";
@@ -42,4 +42,14 @@ export const fetchAdvancedUsers = async ({ username, location, minRepos }) => {
 
   const res = await axios.get(`https://api.github.com/search/users?q=${query}`);
   return res.data.items; // Array of users
+};*/
+
+
+
+import axios from 'axios';
+
+export const fetchUserData = async (username) => {
+  const response = await axios.get(`https://api.github.com/users/${username}`);
+  return response.data;
 };
+
