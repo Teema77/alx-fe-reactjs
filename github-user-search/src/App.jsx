@@ -41,7 +41,7 @@ function App() {
 export default App;*/
 
 
-import React from "react";
+/*import React from "react";
 import Search from "./components/Search";
 
 function App() {
@@ -63,4 +63,16 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
+
+
+function App() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <h1 className="text-3xl font-bold text-blue-600">
+        Tailwind is working!
+      </h1>
+    </div>
+  );
+}
+
