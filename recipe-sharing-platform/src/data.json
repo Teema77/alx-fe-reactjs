@@ -5,7 +5,7 @@
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
     "image":"/images/carbonara.jpg",
     "ingredients": ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese", "Black Pepper"],
-    "steps": [
+    "instructions": [
       "Boil pasta until al dente.",
       "Cook pancetta until crispy.",
       "Mix eggs and cheese in a bowl.",
@@ -19,7 +19,7 @@
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
     "image": "/images/tikka.jpg",
     "ingredients": ["Chicken", "Yogurt", "Tomatoes", "Onion", "Garlic", "Spices"],
-    "steps": [
+    "instructions": [
       "Marinate chicken in yogurt and spices.",
       "Grill the chicken until cooked.",
       "Prepare tomato-onion sauce with spices.",
