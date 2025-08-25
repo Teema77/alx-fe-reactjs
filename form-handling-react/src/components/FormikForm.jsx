@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 const FormikForm = () => {
@@ -32,66 +32,69 @@ const FormikForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ isSubmitting, status }) => (
+        {(formik) => (
           <Form className="space-y-4">
             {/* Username */}
             <div>
               <label className="block font-medium">Username</label>
-              <Field
+              <input
                 type="text"
                 name="username"
                 className="w-full p-2 border rounded"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
-              <ErrorMessage
-                name="username"
-                component="p"
-                className="text-red-500 text-sm"
-              />
+              {formik.touched.username && formik.errors.username && (
+                <p className="text-red-500 text-sm">{formik.errors.username}</p>
+              )}
             </div>
 
             {/* Email */}
             <div>
               <label className="block font-medium">Email</label>
-              <Field
+              <input
                 type="email"
                 name="email"
                 className="w-full p-2 border rounded"
+                value={formik.values.email}   
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
-              <ErrorMessage
-                name="email"
-                component="p"
-                className="text-red-500 text-sm"
-              />
+              {formik.touched.email && formik.errors.email && (
+                <p className="text-red-500 text-sm">{formik.errors.email}</p>
+              )}
             </div>
 
             {/* Password */}
             <div>
               <label className="block font-medium">Password</label>
-              <Field
+              <input
                 type="password"
                 name="password"
                 className="w-full p-2 border rounded"
+                value={formik.values.password} 
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
-              <ErrorMessage
-                name="password"
-                component="p"
-                className="text-red-500 text-sm"
-              />
+              {formik.touched.password && formik.errors.password && (
+                <p className="text-red-500 text-sm">{formik.errors.password}</p>
+              )}
             </div>
 
             <button
               type="submit"
-              disabled={isSubmitting}
+              disabled={formik.isSubmitting}
               className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
             >
-              {isSubmitting ? "Registering..." : "Register"}
+              {formik.isSubmitting ? "Registering..." : "Register"}
             </button>
 
-            {status?.success && (
-              <p className="mt-4 text-green-600">{status.success}</p>
+            {formik.status?.success && (
+              <p className="mt-4 text-green-600">{formik.status.success}</p>
             )}
-            {status?.error && (
-              <p className="mt-4 text-red-600">{status.error}</p>
+            {formik.status?.error && (
+              <p className="mt-4 text-red-600">{formik.status.error}</p>
             )}
           </Form>
         )}
